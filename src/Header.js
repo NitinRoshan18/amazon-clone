@@ -33,15 +33,15 @@ const handleAuthentication = () => {
       </div>
 
       <div className="header_address border">
-        <CiLocationOn className="header__location" />
+        <CiLocationOn className="header_location" />
       </div>
       <div className="header_address border">
-        <span className="header__option-lineOne">Delivering To Patna</span>
-        <span className="header__option-lineTwo">Update Location</span>
+        <span className="header_option-lineOne">Delivering To Patna</span>
+        <span className="header_option-lineTwo">Update Location</span>
       </div>
 
       <div className="header_search ">
-        <select id="dropdown" placeholder="All" selected>
+        <select className="dropdown"  selected>
           <option value="option1">All Categories</option>
           <option value="option2">Alexa Skills</option>
           <option value="option3">Amazon Devices</option>
@@ -85,22 +85,22 @@ const handleAuthentication = () => {
         </select>
 
         <input
-          className="header__search-input"
+          className="header_search-input"
           type="text"
           placeholder="Search Amazon.in"
         />
-        <SiGooglelens className="header__search-lens" />
-        <IoSearch className="header__search-icon" />
+        <SiGooglelens className="header_search-lens" />
+        <IoSearch className="header_search-icon" />
       </div>
 
-      <div className="header__nav">
-        <div className="header__option border">
+      <div className="header_nav">
+        <div className="header_option border">
           <div class="language-dropdown">
             <button class="dropdown-button">
               <img
                 src="https://flagsapi.com/IN/flat/64.png"
                 alt="English"
-                className="header__language"
+                className="header_language"
               />
               EN
             </button>
@@ -134,27 +134,27 @@ const handleAuthentication = () => {
         </div>
        
         <Link to={!user && "/login"}>
-        <div onClick={handleAuthentication} className="header__option border">
+        <div onClick={handleAuthentication} className="header_option border">
           
-          <span className="header__option-lineOne">Hello, Guest</span>
+          <span className="header_option-lineOne">Hello, {!user? 'Guest':user.email}</span>
 
-          <span className="header__option-lineTwo">{user? 'Sign out':'Sign In'}</span>
+          <span className="header_option-lineTwo">{user? 'Sign out':'Sign In'}</span>
           
         </div>
         </Link>
-        <div className="header__option border">
-          <span className="header__option-lineOne">Returns</span>
-          <span className="header__option-lineTwo">& Orders</span>
+        <div className="header_option border">
+          <span className="header_option-lineOne">Returns</span>
+          <span className="header_option-lineTwo">& Orders</span>
         </div>
          
          <Link to= "/checkout">
-        <div className="header__optionCart border">
-          <BsCart2 className="header__basketIcon" />
-          <span className="header__option-lineTwo header_cartCount">{basket?.length}</span>
+        <div className="header_optionCart border">
+          <BsCart2 className="header_basketIcon" />
+          <span className="header_option-lineTwo header_cartCount">{basket?.length}</span>
         </div>
         </Link>
       </div>
-      <div className="header__cart">Cart</div>
+      <div className="header_cart">Cart</div>
     </div>
      
 
@@ -172,9 +172,9 @@ function SubHeader() {
   };
 
   return (
-      <div className="sub__header">
+      <div className="sub_header">
         <div>
-       <span className="sub__header-link border" onClick={toggleSidebar} >< TfiMenu  />All</span>
+       <span className="sub_header-link border" onClick={toggleSidebar} >< TfiMenu  />All</span>
        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
        </div>
       
@@ -192,6 +192,9 @@ function SubHeader() {
        <a href="hello.com" className="sub__header-link border">Gift ideas</a>
        <a href="hello.com" className="sub__header-link border">Fashion</a>
        <a href="hello.com" className="sub__header-link  border">Amazon Pay</a>
+       <a href="hello.com" className="sub__header-link  border">Computers</a>
+       <a href="hello.com" className="sub__header-link  border">Books</a>
+       <a href="hello.com" className="sub__header-link  border">Toys & Games</a>
      </div>
   )
 }

@@ -1,52 +1,48 @@
-
-import React, { useState } from 'react'
-import './Login.css'
-import {Link, useNavigate } from "react-router-dom";
-import {auth} from './Firebase';
-
-
-
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from './Firebase';
+import './Login.css';
 
 function Login() {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  
 
-
-  const signIn = e => {
-    e.preventDefault();
-
-    auth
-    .signInWithEmailAndPassword(email,password)
-    .then(auth => {
-      
-      navigate.push('./')
-    })
-    .catch(error => alert(error.message))
-    //console.log(email, password))
-   }
-
-
-  const register = e => {
-    e.preventDefault();
-    //console.log(email, password)
-    auth
-      .createUserWithEmailAndPassword(email,password)
-      .then((auth) => {
-     //create a new user
-     
-      if(auth){
-        navigate.push('./')
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate('/');
       }
-    })
-    .catch(error => alert(error.message));
-  }
+    });
 
+    return () => {
+      unsubscribe();
+    };
+  }, [auth, navigate]);
+
+  const signIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  const register = async (e) => {
+    e.preventDefault();
+
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/');
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
- 
     <div className='login'>
         <Link to = "/" >
             <img
@@ -85,7 +81,7 @@ function Login() {
         <button className='newAccount_button' onClick={register}>Create Your Amazon Account</button>
         </div>
     </div>
-  )
+  );
 }
 
 export default Login;
