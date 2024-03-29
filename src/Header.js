@@ -26,7 +26,7 @@ const handleAuthentication = () => {
         <Link to= "/">
         <img
         className="header_logo " 
-        src="https://zeevector.com/wp-content/uploads/LOGO/Amazon-India-Logo-PNG-White2.png"
+        src="https://seeklogo.com/images/A/amazon-in-logo-6FDF9EDE86-seeklogo.com.png"
         alt="Amazon Logo" 
       /> 
         </Link>
@@ -133,7 +133,7 @@ const handleAuthentication = () => {
           </div>
         </div>
        
-        <Link to={!user && "/login"}>
+        <Link to={!user && "/login"} className="link-button">
         <div onClick={handleAuthentication} className="header_option border">
           
           <span className="header_option-lineOne">Hello, {!user? 'Guest':user.email}</span>

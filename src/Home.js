@@ -23,12 +23,12 @@ import {
   Product20,
   Product,
 } from "./Product";
-import ImgSlider  from "./ImgSlider";
+import ImgSlider from "./ImgSlider";
 import Slider from "./ProductSlider";
 import ProductCarousel from "./ProductSlider2";
 import ProductCarousel2 from "./ProductSlider3";
 import ProductCarousel4 from "./ProductSlider4";
-
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -83,9 +83,6 @@ function Home() {
           <ProductCarousel4 />
         </div>
 
-       
-
-
         <div className="home__row">
           <Product
             id="12345"
@@ -111,7 +108,6 @@ function Home() {
             id="34567"
             title="Amazon Echo (4th Gen)"
             description="Premium sound powered by Dolby and Alexa (Black)"
-           
             price={"9999"}
             image="https://m.media-amazon.com/images/I/61dgl2srHDL.AC_SX250.jpg"
             rating={4}
@@ -129,20 +125,15 @@ function Home() {
             id="56789"
             title="Xiaomi 108 cm (43 inches) X Series 4K Ultra HD Smart Google TV "
             description="|L43M8-A2IN (Black) | "
-           
             price={"25999"}
             image="https://m.media-amazon.com/images/I/71L+JnVXFTL._AC_UL480_FMwebp_QL65_.jpg"
             rating={4}
           />
         </div>
-
-       
-
+        <div className="home__row">
+          <Footer />
+        </div>
       </div>
-
-
-      
-
     </div>
   );
 }
