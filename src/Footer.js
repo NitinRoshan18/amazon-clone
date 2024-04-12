@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Footer.css";
 import { TbWorld } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 function Footer() {
-    const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
 
   const handleChange = (event) => {
     setSelectedLanguage(event.target.value);
@@ -12,8 +13,11 @@ function Footer() {
   return (
     <div className="footer">
       <div className="foot_one">
-        <p>Back to top</p>
+        <Link to="/" className="link-button">
+          <p>Back to top</p>
+        </Link>
       </div>
+
       <div className="foot_two">
         <div>
           <h4>Get to Know Us</h4>
@@ -64,13 +68,20 @@ function Footer() {
             alt="Amaz"
             className="amazon_logo"
           />
-          <select id="language" name="language" value={selectedLanguage} onChange={handleChange}  >
-             <label> <TbWorld /> </label>
+          <select
+            id="language"
+            name="language"
+            value={selectedLanguage}
+            onChange={handleChange}
+          >
+            <label>
+              {" "}
+              <TbWorld />{" "}
+            </label>
             <option value="en">English</option>
             <option value="es">Español</option>
             <option value="fr">Français</option>
           </select>
-         
         </div>
         <div className="country_listings">
           <p>Australia</p>
@@ -159,7 +170,9 @@ function Footer() {
           <p>Privacy Notice</p>
           <p>Interest-Based Ads</p>
         </div>
-        <p>© 1996-2024, Amazon.com, Inc. or its affiliates</p>
+        <div className="foot_five_option">
+          <p>© 1996-2024, Amazon.com, Inc. or its affiliates</p>
+        </div>
       </div>
     </div>
   );

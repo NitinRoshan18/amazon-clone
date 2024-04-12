@@ -18,6 +18,23 @@
   flex: 1;
   box-sizing: border-box;
 }
+.product_one{
+  flex-grow: 1;
+
+}
+.product_two{
+  flex-grow: 1;
+
+}
+.product_three{
+  flex-grow: 1;
+
+}
+.product_four{
+  flex-grow: 1;
+
+}
+
 .product___image {
   width: 140px;
   height: fit-content;
@@ -106,6 +123,8 @@ h3 {
   border-color: #a88734 #9c7e31 #846a29;
   margin-left: 14px;
   cursor: pointer;
+  padding: 3px;
+  border-radius: 5px;
 }
 .product_rating {
   display: flex;

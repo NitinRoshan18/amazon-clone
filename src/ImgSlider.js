@@ -46,6 +46,12 @@ const images = [
   
   "https://images-eu.ssl-images-amazon.com/images/G/31/img21/OHL/GATEWAY/SPC/VPC/Feb/SPC-VPC-PC-2x._CB581411722_.jpg"
   ,
+  "https://images-eu.ssl-images-amazon.com/images/G/31/img24/Consumables/GW/Mar18/QC/PC_GW_Hero_3000x1200_01._CB579486410_.jpg"
+  ,
+  "https://images-eu.ssl-images-amazon.com/images/G/31/IMG24/Smart_Watches/3000X1200_New_Launch_March_hero1._CB580055456_.jpg"
+  ,
+  "https://images-eu.ssl-images-amazon.com/images/G/31/IMG20/Home/2024/Gateway/ATFGW/GW_Storage-box_3000x1200_PC._CB561623684_.jpg"
+  ,
   
 
 ];

@@ -13,7 +13,7 @@
 .prev-button,
 .next-button {
   position: absolute;
-  top: 28%;
+  top: 21%;
   transform: translateY(-50%);
   color: grey;
   font-size: 50px;

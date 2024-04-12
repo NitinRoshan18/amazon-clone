@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 365px;
+  width: 360px;
   height: 100%;
   background-color: white;
   color: black;
@@ -10,6 +10,7 @@
   transform: translateX(-100%);
   z-index: 1000;
   margin-top: 0%;
+  overflow-y: scroll
 }
 
 .sidebar--open {
@@ -21,7 +22,7 @@
   align-items: center;
   justify-content: center;
   width: 60px;
-  height: 80px;
+  height: 60px;
   background-color: transparent;
   color: white;
   border: none;
@@ -29,19 +30,24 @@
   position: absolute;
   top: 0;
   right: 0;
-  font-size: 30px;
+  left: 85%;
+  font-size: 40px;
+  opacity: 1;
+  font-weight: 400;
 }
 .sidebar_list {
   list-style: none;
   padding: 0;
   margin: 0;
   color: black;
-
   scrollbar-width: thin;
   scrollbar-color: #ccc #eee;
+  text-align: start;
+  padding-left: 15px;
 }
 
 .sidebar h2 {
+  display: flex;
   font-size: 20px;
   font-weight: 600;
   background-color: #232f3e;
@@ -49,21 +55,28 @@
   height: 50px;
   align-items: center;
   justify-content: center;
+  
+  overflow: hidden;
 }
 #user_icon {
-  margin-left: 36px;
   font-size: 30px;
   fill: #fff;
   padding-top: 5px;
 }
 
 .sidebar_nav h3 {
-  height: 44px;
+  height: 40px;
+  font-size: 18px;
+  text-align: start;
+  padding-left: 8px;
 }
 
+
 .sidebar_item {
-  height: 42px;
-  padding: 13px 20px 13px 36px;
+  height: 30px;
+  font-size: 14px;
+  align-items: flex-start;
+  
 }
 
 .sidebar_nav::-webkit-scrollbar {
@@ -72,17 +85,7 @@
   display: block;
   overflow-y: auto;
 }
-
-.sidebar_nav::-webkit-scrollbar-track {
-  background-color: black;
-  border-radius: 10px;
-}
-
-.sidebar_nav::-webkit-scrollbar-thumb {
-  background-color: orangered;
-  border-radius: 10px;
-}
-
-.sidebar_nav::-webkit-scrollbar-thumb:hover {
-  background-color: #999;
+.link-button {
+  color: black;
+  text-decoration: none;
 }

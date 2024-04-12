@@ -2,8 +2,6 @@ import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
 
-
-
 function Product1() {
   return (
     <div className="product">
@@ -506,7 +504,6 @@ function Product11() {
         </div>{" "}
         <br />
       </div>
-      
     </div>
   );
 }
@@ -835,37 +832,34 @@ function Product20() {
   );
 }
 
+function Product({
+  id,
+  title,
+  description,
+  description2,
+  image,
+  price,
+  rating,
+}) {
+  const [{ basket }, dispatch] = useStateValue();
 
-  
-
-function Product({ id, title,description,description2, image, price, rating }) {
-
-  const[{basket}, dispatch]=useStateValue();
-
-  
-
-
-const addToBasket = () => {
-  //dispatch items to data layer
- dispatch({
-   type: "ADD_TO_BASKET",
-   item:{
-    id: id,
-    title: title,
-    image: image,
-    price: price,
-    rating:rating,
-   },
-   
- });
-};
+  const addToBasket = () => {
+    //dispatch items to data layer
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: id,
+        title: title,
+        image: image,
+        price: price,
+        rating: rating,
+      },
+    });
+  };
 
   return (
     <div className="products">
-      <img
-        src={image}
-        alt=""
-      />
+      <img src={image} alt="" />
       <div className="product___info">
         <p>{title}</p>
         <p>{description}</p>
@@ -875,10 +869,10 @@ const addToBasket = () => {
           <strong>{price}</strong>
         </p>
         <div className="product_rating">
-         {Array.from({ length: rating }, (_, i) => (
-         <p key={i}>⭐</p>
-         ))}
-       </div>
+          {Array.from({ length: rating }, (_, i) => (
+            <p key={i}>⭐</p>
+          ))}
+        </div>
       </div>
       <button onClick={addToBasket}>Add to cart</button>
     </div>
@@ -906,5 +900,5 @@ export {
   Product18,
   Product19,
   Product20,
-  Product
+  Product,
 };

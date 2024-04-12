@@ -7,30 +7,29 @@ import { BsCart2 } from "react-icons/bs";
 import { TfiMenu } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
-import {auth} from './Firebase';
-import Sidebar from './Sidebar';
-
-
+import { auth } from "./Firebase";
+import Sidebar from "./Sidebar";
 
 function Header() {
-const [{basket, user}, dispatch] = useStateValue();
-const handleAuthentication = () => {
-  if (user){
-    auth.signOut();
-  }
-}
+  const [{ basket, user }, dispatch] = useStateValue();
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
 
   return (
     <div className="header">
-      <div className="logo">
-        <Link to= "/">
-        <img
-        className="header_logo " 
-        src="https://seeklogo.com/images/A/amazon-in-logo-6FDF9EDE86-seeklogo.com.png"
-        alt="Amazon Logo" 
-      /> 
-        </Link>
-      </div>
+      <Link to="/" className="link-button">
+        <div className="logo">
+          <img
+            className="header_logo "
+            src="https://www.pngall.com/wp-content/uploads/15/Amazon-Logo-White-Transparent.png"
+            alt="Amazon Logo"
+          />
+          <span>.in</span>
+        </div>
+      </Link>
 
       <div className="header_address border">
         <CiLocationOn className="header_location" />
@@ -41,7 +40,7 @@ const handleAuthentication = () => {
       </div>
 
       <div className="header_search ">
-        <select className="dropdown"  selected>
+        <select className="dropdown" selected>
           <option value="option1">All Categories</option>
           <option value="option2">Alexa Skills</option>
           <option value="option3">Amazon Devices</option>
@@ -132,39 +131,38 @@ const handleAuthentication = () => {
             </div>
           </div>
         </div>
-       
-        <Link to={!user && "/login"} className="link-button">
-        <div onClick={handleAuthentication} className="header_option border">
-          
-          <span className="header_option-lineOne">Hello, {!user? 'Guest':user.email}</span>
 
-          <span className="header_option-lineTwo">{user? 'Sign out':'Sign In'}</span>
-          
-        </div>
+        <Link to={!user && "/login"} className="link-button">
+          <div onClick={handleAuthentication} className="header_option border">
+            <span className="header_option-lineOne">
+              Hello, {!user ? "Guest" : user.email}
+            </span>
+
+            <span className="header_option-lineTwo">
+              {user ? "Sign out" : "Sign In"}
+            </span>
+          </div>
         </Link>
         <div className="header_option border">
           <span className="header_option-lineOne">Returns</span>
           <span className="header_option-lineTwo">& Orders</span>
         </div>
-         
-         <Link to= "/checkout">
-        <div className="header_optionCart border">
-          <BsCart2 className="header_basketIcon" />
-          <span className="header_option-lineTwo header_cartCount">{basket?.length}</span>
-        </div>
+
+        <Link to="/checkout">
+          <div className="header_optionCart border">
+            <BsCart2 className="header_basketIcon" />
+            <span className="header_option-lineTwo header_cartCount">
+              {basket?.length}
+            </span>
+          </div>
         </Link>
       </div>
       <div className="header_cart">Cart</div>
     </div>
-     
-
   );
 }
 
-
-
 function SubHeader() {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -172,34 +170,65 @@ function SubHeader() {
   };
 
   return (
-      <div className="sub_header">
-        <div>
-       <span className="sub_header-link border" onClick={toggleSidebar} >< TfiMenu  />All</span>
-       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
-       </div>
-      
-       
-       <a href="hello.com" className="sub__header-link border">Amazon MiniTv</a>
-       <a href="hello.com" className="sub__header-link border">Sell</a>
-       <a href="hello.com" className="sub__header-link border">Best Sellers</a>
-       <a href="hello.com" className="sub__header-link border">Mobiles</a>
-       <a href="hello.com" className="sub__header-link border">Today's Deals</a>
-       <a href="hello.com" className="sub__header-link border">Electronics</a>
-       <a href="hello.com" className="sub__header-link border">Prime</a>
-       <a href="hello.com" className="sub__header-link border">Customers Service</a>
-       <a href="hello.com" className="sub__header-link border">News Releases</a>
-       <a href="hello.com" className="sub__header-link border">Home & Kitchen</a>
-       <a href="hello.com" className="sub__header-link border">Gift ideas</a>
-       <a href="hello.com" className="sub__header-link border">Fashion</a>
-       <a href="hello.com" className="sub__header-link  border">Amazon Pay</a>
-       <a href="hello.com" className="sub__header-link  border">Computers</a>
-       <a href="hello.com" className="sub__header-link  border">Books</a>
-       <a href="hello.com" className="sub__header-link  border">Toys & Games</a>
-     </div>
-  )
+    <div className="sub_header">
+      <div>
+        <span className="sub_header-link border" onClick={toggleSidebar}>
+          <TfiMenu />
+          All
+        </span>
+        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+      </div>
+
+      <a href="hello.com" className="sub__header-link border">
+        Amazon MiniTv
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Sell
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Best Sellers
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Mobiles
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Today's Deals
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Electronics
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Prime
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Customers Service
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        News Releases
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Home & Kitchen
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Gift ideas
+      </a>
+      <a href="hello.com" className="sub__header-link border">
+        Fashion
+      </a>
+      <a href="hello.com" className="sub__header-link  border">
+        Amazon Pay
+      </a>
+      <a href="hello.com" className="sub__header-link  border">
+        Computers
+      </a>
+      <a href="hello.com" className="sub__header-link  border">
+        Books
+      </a>
+      <a href="hello.com" className="sub__header-link  border">
+        Toys & Games
+      </a>
+    </div>
+  );
 }
 
-export  {Header, SubHeader};
-
-
-
+export { Header, SubHeader };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import { RxAvatar } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
   return (
@@ -8,12 +9,16 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       <button className="sidebar__close-btn" onClick={() => setIsOpen(false)}>
         <span className="sidebar__close-btn-icon">&times;</span>
       </button>
+
       <h2>
-        <RxAvatar id="user_icon" />
-        Hello, Sign in
+        <Link to="/login" className="link-button">
+          <RxAvatar id="user_icon" />
+          Hello, Sign in
+        </Link>
       </h2>
+
       <nav className="sidebar_nav">
-        <br/>
+        <br />
         <h3>Trending</h3>
         <ul className="sidebar_list">
           <li className="sidebar_item">Best Sellers</li>
@@ -52,9 +57,19 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         <hr />
         <h3>Help & Settings</h3>
         <ul className="sidebar_list">
-          <li className="sidebar_item">Your Account</li>
+          <li className="sidebar_item">
+            <Link to="/login" className="link-button">
+              Your Account{" "}
+            </Link>
+          </li>
+
           <li className="sidebar_item">Customers Service</li>
-          <li className="sidebar_item">Sign in</li>
+
+          <li className="sidebar_item">
+            <Link to="/login" className="link-button">
+              Sign in
+            </Link>
+          </li>
         </ul>
       </nav>
     </div>

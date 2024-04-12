@@ -12,8 +12,21 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 0px 5px 1px rgba(0.1, 0.1, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
+.foot_one p{
+  padding-top: 17px;
+  color: #ffffff;
+}
+.link-button:active,
+.link-button:focus {
+  color: #333;
+  outline: none;
+  box-shadow: none;
+}
+
+
 .foot_two {
   display: flex;
   flex-direction: row;
@@ -22,10 +35,11 @@
   width: 100%;
   background-color: #232f3e;
   padding-top: 20px;
-  list-style-type: none;
+  color: #ffffff;
 }
 li {
   list-style-type: none;
+  padding: 5px;
 }
 .foot_three {
   display: flex;
@@ -95,6 +109,8 @@ select:focus {
   color: #999999;
   background-color: black;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .foot_five_option {
   display: flex;
